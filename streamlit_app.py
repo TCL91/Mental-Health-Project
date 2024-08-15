@@ -36,8 +36,6 @@ status_plot = alt.Chart(an).mark_bar().encode(
     y="Physical Category"
 ).properties(height=700)
 
-st.write("##### First Bar graph using Simple")
-st.bar_chart(chart_data, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
 
 # status_plot = (
 #     alt.Chart(an)
@@ -51,3 +49,6 @@ st.bar_chart(chart_data, x="Would you be willing to bring up a physical health i
 #     )
 # )
 st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
+
+st.write("##### First Bar graph using Simple")
+st.bar_chart(an, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
