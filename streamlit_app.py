@@ -30,15 +30,21 @@ INSERT TEXT HERE
 '''
 st.write("##### First Bar graph")
 
-status_plot = (
-    alt.Chart(an)
-    .mark_bar()
-    .encode(
-        x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
-        y="Physical Category",
-    )
-    .configure_legend(
-        orient="bottom", titleFontSize=14, labelFontSize=14, titlePadding=5
-    )
-)
-st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
+alt.Chart(source).mark_bar().encode(
+    x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+    y="Physical Category"
+).properties(height=700)
+
+
+# status_plot = (
+#     alt.Chart(an)
+#     .mark_bar()
+#     .encode(
+#         x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+#         y="Physical Category",
+#     )
+#     .configure_legend(
+#         orient="bottom", titleFontSize=14, labelFontSize=14, titlePadding=5
+#     )
+# )
+# st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
