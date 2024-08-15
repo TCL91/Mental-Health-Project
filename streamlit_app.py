@@ -34,7 +34,7 @@ status_plot = (
     alt.Chart(an)
     .mark_bar()
     .encode(
-        x="'Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+        x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
         y="Physical Category",
     )
     .configure_legend(
