@@ -1,5 +1,15 @@
 import pandas as pd
 import requests
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
+import plotly.express as px 
+import matplotlib as mpl
+
+import re as re
+
+import seaborn as sns
 from io import StringIO
 import altair as alt
 import streamlit as st
