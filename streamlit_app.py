@@ -38,27 +38,14 @@ an = load_original_data()
 
 INSERT TEXT HERE
 '''
-st.write("##### First Bar graph using Alt")
+# st.write("##### First Bar graph using Alt")
 
 
-status_plot = alt.Chart(an).mark_bar().encode(
-    x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
-    y="Physical Category"
-).properties(height=700)
+# status_plot = alt.Chart(an).mark_bar().encode(
+#     x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+#     y="Physical Category"
+# ).properties(height=700)
 
-
-# status_plot = (
-#     alt.Chart(an)
-#     .mark_bar()
-#     .encode(
-#         x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
-#         y="Physical Category",
-#     )
-#     .configure_legend(
-#         orient="bottom", titleFontSize=14, labelFontSize=14, titlePadding=5
-#     )
-# )
-st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
 st.write("##### First Bar graph using Simple")
 st.bar_chart(an, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
@@ -66,5 +53,5 @@ st.bar_chart(an, x="Would you be willing to bring up a physical health issue wit
 st.write("##### After creating requirements txt")
 
 x = an.columns.get_loc('Would you be willing to bring up a physical health issue with a potential employer in an interview?')
-print(x)
+# print(x)
 an.groupby(['Physical Category', an.iloc[:,36]]).size().plot(kind = 'barh', title = 'Bringing up Physical Health issues during an Interview', ylabel= 'Category')
