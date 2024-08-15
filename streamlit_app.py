@@ -52,8 +52,33 @@ st.bar_chart(an, x="Would you be willing to bring up a physical health issue wit
 
 st.write("##### After creating requirements txt")
 
-x = an.columns.get_loc('Would you be willing to bring up a physical health issue with a potential employer in an interview?')
-# print(x)
-plot1 = an.groupby(['Physical Category', an.iloc[:,36]]).size().plot(kind = 'barh', title = 'Bringing up Physical Health issues during an Interview', ylabel= 'Category')
+ef main():
+    st.title('Physical Health Issues During an Interview')
 
-st.plotly_chart(plot1)
+    # Group by Physical Category and Issue Type, then get size
+    grouped = df.groupby(['Physical Category', df.columns[1]]).size()
+
+    # Create the bar chart
+    fig, ax = plt.subplots()
+    grouped.plot(kind='barh', ax=ax, title='Bringing up Physical Health Issues During an Interview')
+    ax.set_xlabel('Count')
+    ax.set_ylabel('Category')
+    
+   # Streamlit app
+def main():
+    st.title('Physical Health Issues During an Interview')
+
+    # Group by Physical Category and Issue Type, then get size
+    grouped = df.groupby(['Physical Category', df.columns[1]]).size()
+
+    # Create the bar chart
+    fig, ax = plt.subplots()
+    grouped.plot(kind='barh', ax=ax, title='Bringing up Physical Health Issues During an Interview')
+    ax.set_xlabel('Count')
+    ax.set_ylabel('Category')
+    
+    # Show the plot in Streamlit
+    st.pyplot(fig)
+
+if __name__ == "__main__":
+    main()
