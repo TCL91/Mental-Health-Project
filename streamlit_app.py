@@ -96,7 +96,7 @@ def main():
     filtered_an = an[an['Physical Category'] == selected_category]
 
     # Group by Physical Category and an.iloc[:,36]], then get size
-    grouped = filtered_an.groupby(['Physical Category', an.iloc[:,36]]).size()
+    grouped = filtered_an.dropna().groupby(['Physical Category', an.iloc[:,36]]).size()
 
     # Create the bar chart
     fig, ax = plt.subplots()
