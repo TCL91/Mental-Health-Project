@@ -79,6 +79,39 @@ st.write("##### Now make it interactive")
 # Streamlit app
 
 
+# def main():
+#     st.title('Interactive Physical Health Issues During an Interview')
+
+#     # Sidebar for user input
+#     st.sidebar.header('Filter Options')
+
+#     # Dropdown to select Physical Category
+#     physical_categories = an['Physical Category'].unique()
+#     selected_category = st.sidebar.selectbox(
+#         'Select Physical Category:',
+#         options=physical_categories
+#     )
+
+#     # Filter DataFrame based on selected Physical Category
+#     filtered_an = an[an['Physical Category'] == selected_category]
+
+#     # Group by Physical Category and an.iloc[:,36]], then get size
+#     grouped = filtered_an.groupby(['Physical Category', an.iloc[:,36]]).size()
+
+#     # Create the bar chart
+#     fig, ax = plt.subplots()
+#     grouped.plot(kind='barh', ax=ax, title=f'Bringing up Physical Health Issues for {selected_category}')
+#     ax.set_xlabel('Count')
+#     ax.set_ylabel('Category')
+
+#     # Show the plot in Streamlit
+#     st.pyplot(fig)
+
+# if __name__ == "__main__":
+#     main()
+
+
+
 def main():
     st.title('Interactive Physical Health Issues During an Interview')
 
@@ -87,13 +120,21 @@ def main():
 
     # Dropdown to select Physical Category
     physical_categories = an['Physical Category'].unique()
+
+    if None in physical_categories:
+        physical_categories[physical_categories.index(None)] = 'Unknown'
+    
     selected_category = st.sidebar.selectbox(
         'Select Physical Category:',
         options=physical_categories
     )
 
     # Filter DataFrame based on selected Physical Category
-    filtered_an = an[an['Physical Category'] == selected_category]
+        # Handle 'Unknown' as NaN for filtering
+    if selected_category == 'Unknown':
+        filtered_an = an[an['Physical Category'].isna()]
+    else:
+        filtered_an = an[an['Physical Category'] == selected_category]
 
     # Group by Physical Category and an.iloc[:,36]], then get size
     grouped = filtered_an.groupby(['Physical Category', an.iloc[:,36]]).size()
