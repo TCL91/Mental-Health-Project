@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 from io import StringIO
+import altair as alt
 import streamlit as st
 
 st.title('Mental Health in the TechField 2016')
@@ -16,7 +17,7 @@ def load_original_data():
         st.error("Failed to load data from GitHub.")
         return None
     
-mh2016 = load_original_data()
+an = load_original_data()
 
 # -----------------------------------------------------------------------------
 # Draw the actual page
@@ -27,3 +28,16 @@ mh2016 = load_original_data()
 
 INSERT TEXT HERE
 '''
+st.write("##### Ticket status per month")
+status_plot = (
+    alt.Chart(an)
+    .mark_bar()
+    .encode(
+        x="'Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+        y="Physical Category",
+    )
+    .configure_legend(
+        orient="bottom", titleFontSize=14, labelFontSize=14, titlePadding=5
+    )
+)
+st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
