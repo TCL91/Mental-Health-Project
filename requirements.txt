@@ -1,4 +1,4 @@
-python==3.7
+python
 mkdocs
 mkdocs-cinder
 cookiecutter
@@ -9,5 +9,4 @@ matplotlib
 numpy 
 plotly 
 matplotlib 
-re 
 seaborn 
