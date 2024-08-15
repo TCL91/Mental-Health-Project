@@ -93,7 +93,7 @@ def main():
     )
 
     # Filter DataFrame based on selected Physical Category
-    filtered_an = an[an['Physical Category'] == selected_category].dropna()
+    filtered_an = an[an['Physical Category'] == selected_category]
 
     # Group by Physical Category and an.iloc[:,36]], then get size
     grouped = filtered_an.groupby(['Physical Category', an.iloc[:,36]]).size()
