@@ -25,7 +25,5 @@ mh2016 = load_original_data()
 '''
 #  Mental Health dashboard
 
-Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
-notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
-But it's otherwise a great (and did I mention _free_?) source of data.
+INSERT TEXT HERE
 '''
