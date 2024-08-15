@@ -30,7 +30,7 @@ INSERT TEXT HERE
 '''
 st.write("##### First Bar graph")
 
-alt.Chart(source).mark_bar().encode(
+alt.Chart(an).mark_bar().encode(
     x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
     y="Physical Category"
 ).properties(height=700)
