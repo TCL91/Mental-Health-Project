@@ -2,9 +2,9 @@ import pandas as pd
 import requests
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
-# import plotly.express as px 
+import plotly.express as px 
 import matplotlib as mpl
 
 import re as re
@@ -62,3 +62,9 @@ st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
 st.write("##### First Bar graph using Simple")
 st.bar_chart(an, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
+
+st.write("##### After creating requirements txt")
+
+x = an.columns.get_loc('Would you be willing to bring up a physical health issue with a potential employer in an interview?')
+print(x)
+an.groupby(['Physical Category', an.iloc[:,36]]).size().plot(kind = 'barh', title = 'Bringing up Physical Health issues during an Interview', ylabel= 'Category')
