@@ -70,3 +70,44 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+st.write("##### Now make it interactive")
+
+
+
+# Streamlit app
+def main():
+    st.title('Interactive Physical Health Issues During an Interview')
+
+    # Create sidebar for user input
+    st.sidebar.header('Filter Options')
+    
+    # Dropdown to select Physical Category
+    physical_category = st.sidebar.selectbox(
+        'Select Physical Category:',
+        options=an['Physical Category'].unique()
+    )
+    
+    # Filter DataFrame based on selected Physical Category
+    filtered_an = an[an['Physical Category'] == physical_category]
+
+    # Group by Physical Category and Issue Type, then get size
+    grouped = filtered_an.groupby(['Physical Category', 'Issue Type']).size().reset_index(name='Count')
+
+    # Create the bar chart using Plotly
+    fig = px.bar(
+        grouped,
+        x='Count',
+        y='Issue Type',
+        color='Issue Type',
+        title=f'Bringing up Physical Health Issues for {physical_category}',
+        labels={'Count': 'Count', 'Issue Type': 'Issue Type'},
+        orientation='h'  # Horizontal bar chart
+    )
+
+    # Show the plot in Streamlit
+    st.plotly_chart(fig)
+
+if __name__ == "__main__":
+    main()
