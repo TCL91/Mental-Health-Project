@@ -138,7 +138,7 @@ def main():
     fig, ax = plt.subplots()
     grouped.plot(kind='barh', ax=ax, title=f'Bringing up Physical Health Issues for {selected_category}')
     ax.set_xlabel('Count')
-    ax.set_ylabel(Category)
+    ax.set_ylabel('Category')
 
     # Show the plot in Streamlit
     st.pyplot(fig)
