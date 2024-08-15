@@ -51,25 +51,13 @@ st.write("##### First Bar graph using Simple")
 st.bar_chart(an, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
 
 st.write("##### After creating requirements txt")
-
-ef main():
-    st.title('Physical Health Issues During an Interview')
-
-    # Group by Physical Category and Issue Type, then get size
-    grouped = df.groupby(['Physical Category', df.columns[1]]).size()
-
-    # Create the bar chart
-    fig, ax = plt.subplots()
-    grouped.plot(kind='barh', ax=ax, title='Bringing up Physical Health Issues During an Interview')
-    ax.set_xlabel('Count')
-    ax.set_ylabel('Category')
     
    # Streamlit app
 def main():
     st.title('Physical Health Issues During an Interview')
 
     # Group by Physical Category and Issue Type, then get size
-    grouped = df.groupby(['Physical Category', df.columns[1]]).size()
+    grouped = an.groupby(['Physical Category', an.iloc[:,36]).size()
 
     # Create the bar chart
     fig, ax = plt.subplots()
