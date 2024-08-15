@@ -38,19 +38,19 @@ an = load_original_data()
 
 INSERT TEXT HERE
 '''
-# st.write("##### First Bar graph using Alt")
+# # st.write("##### First Bar graph using Alt")
 
 
-# status_plot = alt.Chart(an).mark_bar().encode(
-#     x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
-#     y="Physical Category"
-# ).properties(height=700)
+# # status_plot = alt.Chart(an).mark_bar().encode(
+# #     x="Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+# #     y="Physical Category"
+# # ).properties(height=700)
 
 
-st.write("##### First Bar graph using Simple")
-st.bar_chart(an, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
+# st.write("##### First Bar graph using Simple")
+# st.bar_chart(an, x="Would you be willing to bring up a physical health issue with a potential employer in an interview?", y="Physical Category")
 
-st.write("##### After creating requirements txt")
+st.write("##### Figured out how to take the graph from analysis to streamlit but not interactive using chatgpt")
     
    # Streamlit app
 def main():
