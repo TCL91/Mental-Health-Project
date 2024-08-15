@@ -28,7 +28,8 @@ an = load_original_data()
 
 INSERT TEXT HERE
 '''
-st.write("##### Ticket status per month")
+st.write("##### First Bar graph")
+
 status_plot = (
     alt.Chart(an)
     .mark_bar()
