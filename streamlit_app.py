@@ -57,7 +57,7 @@ def main():
     st.title('Physical Health Issues During an Interview')
 
     # Group by Physical Category and Issue Type, then get size
-    grouped = an.groupby(['Physical Category', an.iloc[:,36]).size()
+    grouped = an.groupby(['Physical Category', an.iloc[:,36]]).size())
 
     # Create the bar chart
     fig, ax = plt.subplots()
