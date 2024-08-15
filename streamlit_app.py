@@ -54,4 +54,6 @@ st.write("##### After creating requirements txt")
 
 x = an.columns.get_loc('Would you be willing to bring up a physical health issue with a potential employer in an interview?')
 # print(x)
-an.groupby(['Physical Category', an.iloc[:,36]]).size().plot(kind = 'barh', title = 'Bringing up Physical Health issues during an Interview', ylabel= 'Category')
+plot1 = an.groupby(['Physical Category', an.iloc[:,36]]).size().plot(kind = 'barh', title = 'Bringing up Physical Health issues during an Interview', ylabel= 'Category')
+
+st.plotly_chart(plot1)
